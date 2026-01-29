@@ -24,7 +24,7 @@ SRCS_DIR    = ./
 OBJS_DIR    = bin
 
 # Source files
-SRCS_FILES  = main.cpp ScalarConverter.cpp \
+SRCS_FILES  = main.cpp ScalarConverter.cpp ScalarUtils.cpp \
 
 OBJS_FILES  = $(patsubst $(SRCS_DIR)%.cpp, $(OBJS_DIR)/%.o, $(SRCS_FILES))
 
