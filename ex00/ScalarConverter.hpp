@@ -13,15 +13,31 @@
 #ifndef SCALARCONVERTER_HPP
 #define SCALARCONVERTER_HPP
 
+# include <cstring>
+# include <cstdlib>
+# include <iostream>
+# include <cctype>
+
+enum Type {
+	CHAR,
+	INT,
+	FLOAT,
+	DOUBLE,
+	PSEUDO,
+	INVALID
+};
+
 class ScalarConverter {
 	private:
 		ScalarConverter();
+		~ScalarConverter();
 		ScalarConverter(const ScalarConverter &other);
 		ScalarConverter& operator=(const ScalarConverter &other);
 	public:
-		~ScalarConverter();
+		static void convert(const std::string& input);
+};
 
-		static void convert(const std::string &input);
-}
+bool isValidNumber(const std::string& input);
+Type getType(const std::string& input);
 
 #endif
