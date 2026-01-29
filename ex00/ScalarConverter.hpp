@@ -17,6 +17,7 @@
 # include <cstdlib>
 # include <iostream>
 # include <cctype>
+# include <limits>
 
 enum Type {
 	CHAR,
