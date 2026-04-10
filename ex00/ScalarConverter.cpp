@@ -67,6 +67,8 @@ static void toInt(const std::string& input)
 		std::cout << "impossible" << std::endl;
 	else
 		std::cout << static_cast<int>(num) << std::endl;
+	std::cout << "float: " << static_cast<float>(num) << ".0f" << std::endl;
+	std::cout << "double: " << static_cast<double>(num) << ".0" << std::endl;
  }
 
 void ScalarConverter::convert(const std::string& input)
@@ -82,7 +84,7 @@ void ScalarConverter::convert(const std::string& input)
 			toInt(input);
 			break;
 		case FLOAT:
-			std::cout << "FLOAT: " << myType << std::endl;
+			toFloat(input);
 			break;
 		case DOUBLE:
 			std::cout << "DOUBLE: " << myType << std::endl;
