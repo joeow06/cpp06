@@ -50,14 +50,14 @@ static void toChar(const std::string& input)
 
 static void toInt(const std::string& input)
 {
-	long num = std::atol(input.c_str());
+	double num = std::strtod(input.c_str(), NULL);
 
 	std::cout << "char: ";
 	if (num < 0 || num > 127)
 		std::cout << "impossible" << std::endl;
 	else
 	{
-		if (isprint(num))
+		if (isprint(static_cast<int>(num)))
 			std::cout << "'" << static_cast<char>(num) << "'" << std::endl;
 		else
 			std::cout << "Non displayable" << std::endl;
@@ -67,9 +67,55 @@ static void toInt(const std::string& input)
 		std::cout << "impossible" << std::endl;
 	else
 		std::cout << static_cast<int>(num) << std::endl;
-	std::cout << "float: " << static_cast<float>(num) << ".0f" << std::endl;
-	std::cout << "double: " << static_cast<double>(num) << ".0" << std::endl;
+	std::cout << "float: " << std::fixed << std::setprecision(1) << static_cast<float>(num) << "f" << std::endl;
+	std::cout << "double: " << std::fixed << std::setprecision(1) << num << std::endl;
  }
+
+static void toFloat(const std::string& input)
+{
+	double num = std::strtod(input.c_str(), NULL);
+
+	std::cout << "char: ";
+	if (num < 0 || num > 127)
+		std::cout << "impossible" << std::endl;
+	else
+	{
+		if (isprint(static_cast<int>(num)))
+			std::cout << "'" << static_cast<char>(num) << "'" << std::endl;
+		else
+			std::cout << "Non displayable" << std::endl;
+	}
+	std::cout << "int: ";
+	if (num < std::numeric_limits<int>::min() || num > std::numeric_limits<int>::max())
+		std::cout << "impossible" << std::endl;
+	else
+		std::cout << static_cast<int>(num) << std::endl;
+    std::cout << "float: " << std::fixed << std::setprecision(1) << static_cast<float>(num) << "f" << std::endl;
+	std::cout << "double: " << std::fixed << std::setprecision(1) << num << std::endl;
+}
+
+static void toDouble(const std::string& input)
+{
+	double num = std::strtod(input.c_str(), NULL);
+
+	std::cout << "char: ";
+	if (num < 0 || num > 127)
+		std::cout << "impossible" << std::endl;
+	else
+	{
+		if (isprint(static_cast<int>(num)))
+			std::cout << "'" << static_cast<char>(num) << "'" << std::endl;
+		else
+			std::cout << "Non displayable" << std::endl;
+	}
+	std::cout << "int: ";
+	if (num < std::numeric_limits<int>::min() || num > std::numeric_limits<int>::max())
+		std::cout << "impossible" << std::endl;
+	else
+		std::cout << static_cast<int>(num) << std::endl;
+    std::cout << "float: " << std::fixed << std::setprecision(1) << static_cast<float>(num) << "f" << std::endl;
+	std::cout << "double: " << std::fixed << std::setprecision(1) << num << std::endl;
+}
 
 void ScalarConverter::convert(const std::string& input)
 {

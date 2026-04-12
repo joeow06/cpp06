@@ -65,4 +65,5 @@ Type getType(const std::string& input)
 	if (input.find('.') != std::string::npos)
 		return DOUBLE;
 	return INT;
+
 }
