@@ -73,7 +73,7 @@ static void toInt(const std::string& input)
 
 static void toFloat(const std::string& input)
 {
-	double num = std::strtod(input.c_str(), NULL);
+	float num = std::strtof(input.c_str(), NULL);
 
 	std::cout << "char: ";
 	if (num < 0 || num > 127)
@@ -90,8 +90,8 @@ static void toFloat(const std::string& input)
 		std::cout << "impossible" << std::endl;
 	else
 		std::cout << static_cast<int>(num) << std::endl;
-    std::cout << "float: " << std::fixed << std::setprecision(1) << static_cast<float>(num) << "f" << std::endl;
-	std::cout << "double: " << std::fixed << std::setprecision(1) << num << std::endl;
+    std::cout << "float: " << std::fixed << std::setprecision(1) << num << "f" << std::endl;
+	std::cout << "double: " << std::fixed << std::setprecision(1) << static_cast<double>(num) << std::endl;
 }
 
 static void toDouble(const std::string& input)
@@ -117,6 +117,31 @@ static void toDouble(const std::string& input)
 	std::cout << "double: " << std::fixed << std::setprecision(1) << num << std::endl;
 }
 
+static void toPseudo(const std::string& input)
+{
+	if (input == "-inf" || input == "-inff")
+	{
+		std::cout << "char: impossible" << std::endl;
+		std::cout << "int: impossible" << std::endl;
+		std::cout << "float: -inff" << std::endl;
+		std::cout << "double: -inf" << std::endl;
+	}
+	else if (input == "+inf" || input == "+inff")
+	{
+		std::cout << "char: impossible" << std::endl;
+		std::cout << "int: impossible" << std::endl;
+		std::cout << "float: +inff" << std::endl;
+		std::cout << "double: +inf" << std::endl;
+	}
+	else if (input == "nan" || input == "nanf")
+	{
+		std::cout << "char: impossible" << std::endl;
+		std::cout << "int: impossible" << std::endl;
+		std::cout << "float: nanf" << std::endl;
+		std::cout << "double: nan" << std::endl;
+	}
+}
+
 void ScalarConverter::convert(const std::string& input)
 {
 	Type myType = getType(input);
@@ -133,13 +158,13 @@ void ScalarConverter::convert(const std::string& input)
 			toFloat(input);
 			break;
 		case DOUBLE:
-			std::cout << "DOUBLE: " << myType << std::endl;
+			toDouble(input);
 			break;
 		case PSEUDO:
-			std::cout << "PSEUDO: " << myType << std::endl;
+			toPseudo(input);
 				break;
 		case INVALID:
-			std::cout << "INVALID: " << myType << std::endl;
+			std::cout << "Error: conversion is impossible" << std::endl;
 			break;
 	}
 }
