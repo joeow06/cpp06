@@ -48,6 +48,26 @@ static void toChar(const std::string& input)
 	std::cout <<"double: " << std::fixed << std::setprecision(1) << static_cast<double>(c) << std::endl;
 }
 
+static void printFloat(float f)
+{
+    if (std::isinf(f) || std::isnan(f))
+        std::cout << "float: " << f << std::endl;
+    else if (f == static_cast<long long>(f)) //check if whole number
+        std::cout << "float: " << std::fixed << std::setprecision(1) << f << "f" << std::endl;
+    else
+        std::cout << "float: " << f << "f" << std::endl;
+}
+
+static void printDouble(double d)
+{
+    if (std::isinf(d) || std::isnan(d))
+        std::cout << "double: " << d << std::endl;
+    else if (d == static_cast<long long>(d))
+        std::cout << "double: " << std::fixed << std::setprecision(1) << d << std::endl;
+    else
+        std::cout << "double: " << d << std::endl;
+}
+
 static void toInt(const std::string& input)
 {
 	double num = std::strtod(input.c_str(), NULL);
@@ -67,8 +87,8 @@ static void toInt(const std::string& input)
 		std::cout << "impossible" << std::endl;
 	else
 		std::cout << static_cast<int>(num) << std::endl;
-	std::cout << "float: " << std::fixed << std::setprecision(1) << static_cast<float>(num) << "f" << std::endl;
-	std::cout << "double: " << std::fixed << std::setprecision(1) << num << std::endl;
+	printFloat(static_cast<float>(num));
+	printDouble(num);
  }
 
 static void toFloat(const std::string& input)
@@ -90,8 +110,8 @@ static void toFloat(const std::string& input)
 		std::cout << "impossible" << std::endl;
 	else
 		std::cout << static_cast<int>(num) << std::endl;
-    std::cout << "float: " << std::fixed << std::setprecision(1) << num << "f" << std::endl;
-	std::cout << "double: " << std::fixed << std::setprecision(1) << static_cast<double>(num) << std::endl;
+	printFloat(num);
+	printDouble(static_cast<double>(num));
 }
 
 static void toDouble(const std::string& input)
@@ -113,8 +133,8 @@ static void toDouble(const std::string& input)
 		std::cout << "impossible" << std::endl;
 	else
 		std::cout << static_cast<int>(num) << std::endl;
-    std::cout << "float: " << std::fixed << std::setprecision(1) << static_cast<float>(num) << "f" << std::endl;
-	std::cout << "double: " << std::fixed << std::setprecision(1) << num << std::endl;
+	printFloat(static_cast<float>(num));
+	printDouble(num);
 }
 
 static void toPseudo(const std::string& input)
