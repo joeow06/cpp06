@@ -16,7 +16,7 @@ INCLUDES    = -I$(INC_DIR)
 RM          = rm -rf
 
 # Output file name
-NAME        = convert
+NAME        = serialize
 
 # Directories
 INC_DIR     = ./
@@ -24,7 +24,7 @@ SRCS_DIR    = ./
 OBJS_DIR    = bin
 
 # Source files
-SRCS_FILES  = main.cpp ScalarConverter.cpp ScalarUtils.cpp \
+SRCS_FILES  = main.cpp  Serializer.cpp\
 
 OBJS_FILES  = $(patsubst $(SRCS_DIR)%.cpp, $(OBJS_DIR)/%.o, $(SRCS_FILES))
 
