@@ -78,3 +78,11 @@ echo ''
 ./convert 3402845343444443434234234290900000000000000000000.1
 echo ''
 ./convert -3402845343444443434234234290900000000000000000000.9
+
+# Pseudo test
+echo 'Conversion from Pseudo Literals'
+./convert '+inf'
+echo ''
+./convert '-inf'
+echo ''
+./convert 'nan'
