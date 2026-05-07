@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "ScalarConverter.hpp"
-#include <cfenv>
 #include <iomanip>
 #include <limits>
 #include <cmath>
