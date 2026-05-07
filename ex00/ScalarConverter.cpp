@@ -14,6 +14,7 @@
 #include <cfenv>
 #include <iomanip>
 #include <limits>
+#include <cmath>
 
 ScalarConverter::ScalarConverter() {}
 
