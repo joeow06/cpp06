@@ -51,7 +51,7 @@ static void toChar(const std::string& input)
 static void printFloat(float f)
 {
     if (std::isinf(f) || std::isnan(f))
-        std::cout << "float: " << f << std::endl;
+        std::cout << "float: " << f << "f" << std::endl;
     else if (f == static_cast<long long>(f)) //check if whole number
         std::cout << "float: " << std::fixed << std::setprecision(1) << f << "f" << std::endl;
     else
